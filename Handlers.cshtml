@@ -8,9 +8,24 @@
 
 @{
     WebSecurity.RequireAuthenticatedUser();
+        
+    var currentUserId = WebSecurity.CurrentUserId;
+
+    var db = Database.Open("StarterSite");
+    var handlers = db.Query("select * from Handlers where UserId = @0", currentUserId);
 
     Layout = "~/_SiteLayout.cshtml";
     Page.Title = "Профили";
-
-
 }
+
+<hgroup class="title">
+    <h1>@Page.Title</h1>
+</hgroup>
+
+@if (handlers.Count() == 0) {
+    <p>
+        У вас отсутствуют добавленные профили.
+    </p>
+}
+
+<p>Если вы хотите добавить новый профиль щелкните <a href="~/Handlers/New" title="Добавить новый профиль">здесь</a>.</p>
