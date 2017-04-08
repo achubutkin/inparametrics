@@ -67,10 +67,10 @@
                         // Выражение благодарности за регистрацию и напоминание о письме, отправленном по указанному адресу
                         Response.Redirect("~/Account/Thanks");
                     } else {
-                        // Переход на домашнюю страницу и выход
+                        // Авторизация и переход на страницу управления
                         WebSecurity.Login(email, password);
 
-                        Response.Redirect("~/");
+                        Response.Redirect("~/Account/Manage");
                     }
                 } catch (System.Web.Security.MembershipCreateUserException e) {
                     ModelState.AddFormError(e.Message);
