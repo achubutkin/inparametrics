@@ -1,0 +1,16 @@
+﻿@using WebMatrix.WebData
+
+@* Удалите этот раздел, если используется объединение *@
+@section Scripts {
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+}
+
+@{
+    WebSecurity.RequireAuthenticatedUser();
+
+    Layout = "~/_SiteLayout.cshtml";
+    Page.Title = "Профили";
+
+
+}

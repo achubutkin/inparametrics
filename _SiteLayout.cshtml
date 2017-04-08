@@ -40,6 +40,9 @@
                             <li><a href="~/">Домашняя</a></li>
                             <li><a href="~/About">О программе</a></li>
                             <li><a href="~/Contact">Контакт</a></li>
+                            @if (WebSecurity.IsAuthenticated) {
+                                <li><a href="~/Handlers">Профили</a></li>
+                            }
                         </ul>
                     </nav>
                 </div>
